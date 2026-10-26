@@ -1,0 +1,43 @@
+[alias]
+	### git log
+	lograph = log --graph --decorate -30 --all --topo-order --date=format-local:'%d.%m.%Y %H:%M:%S' --pretty=format:'%C(auto)%h%Creset %C(cyan)(%ad)%Creset %Creset| %s %C(green)[%cn]%Creset%C(auto)%d'
+	gitgraph = log --graph --decorate -30 --all --topo-order --date=format-local:'%d.%m.%Y %H:%M:%S' --pretty=format:'%Creset%C(auto)%d %Creset%s %C(cyan)(%ad)%Creset %C(green)[%cn] %C(auto)%h%Creset'
+	gitlog = log --decorate -30 --all --topo-order --date=format-local:'%d.%m.%Y %H:%M:%S' --pretty=format:'%C(auto)%h%Creset %C(cyan)(%ad)%Creset %Creset| %s %C(green)[%cn]%Creset%C(auto)%d'
+	gitlogbranch = log --decorate -30 --topo-order --date=format-local:'%d.%m.%Y %H:%M:%S' --pretty=format:'%C(auto)%h%Creset %C(cyan)(%ad)%Creset %Creset| %s %C(green)[%cn]%Creset%C(auto)%d'
+	###
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	email = maxjmagic@gmail.com
+	name = Grishin Maxim
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = true
+	safecrlf = warn
+	editor = code --wait
+[diff]
+	tool = vsdiffmerge
+[difftool]
+	prompt = true
+[difftool "vsdiffmerge"]
+	cmd = \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$LOCAL\" \"$REMOTE\" //t
+	keepBackup = false
+[merge]
+	tool = vsdiffmerge
+[mergetool]
+	prompt = true
+[mergetool "vsdiffmerge"]
+	cmd = \"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\IDE\\CommonExtensions\\Microsoft\\TeamFoundation\\Team Explorer\\vsdiffmerge.exe\" \"$REMOTE\" \"$LOCAL\" \"$BASE\" \"$MERGED\" //m
+	keepBackup = false
+	trustExitCode = true
+[difftool "sourcetree"]
+	cmd = "'' "
+[mergetool "sourcetree"]
+	cmd = "'' "
+	trustExitCode = false
+	keepBackup = false
+
